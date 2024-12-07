@@ -1,0 +1,25 @@
+run = "python sniper_bot.py"
+language = "python3"
+entrypoint = "sniper_bot.py"
+
+[nix]
+channel = "stable-22_11"
+
+[env]
+PYTHONPATH = "/home/runner/${REPL_SLUG}/venv/lib/python3.10/site-packages"
+
+[packager]
+language = "python3"
+ignoredPackages = ["unit_tests"]
+
+[packager.features]
+enabledForHosting = false
+packageSearch = true
+guessImports = true
+
+[languages.python3]
+pattern = "**/*.py"
+syntax = "python"
+
+[languages.python3.languageServer]
+start = ["pylsp"]
